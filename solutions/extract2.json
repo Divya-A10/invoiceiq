@@ -1,0 +1,31 @@
+{
+  "invoices": [
+    {
+      "id": "INV-2024-001",
+      "customer": "Acme Corp",
+      "total": 1250.00,
+      "confidence": 0.95
+    }
+  ],
+  "products": [
+    {
+      "id": "PROD-123",
+      "name": "Widget A",
+      "price": 25.00,
+      "confidence": 0.98
+    },
+    {
+      "id": "PROD-456",
+      "name": "Widget B",
+      "price": 50.00,
+      "confidence": 0.92
+    }
+  ],
+  "customers": [
+    {
+      "id": "CUST-001",
+      "name": "Acme Corp",
+      "confidence": 0.99
+    }
+  ]
+}

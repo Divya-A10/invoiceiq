@@ -1,0 +1,45 @@
+ 
+{
+  "invoices": [
+    {
+      "id": "INV-148CZS",
+      "customer": "Shounak NextSpeed Technologies Pvt Ltd",
+      "total": 205481.00,
+      "confidence": 0.95
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "GEMS CHOCLATE POUCH",
+      "price": 5000.00,
+      "confidence": 0.9
+    },
+    {
+      "id": "2",
+      "name": "TREAT BKS CASE 80PKT",
+      "price": 30000.00,
+      "confidence": 0.9
+    },
+    {
+      "id": "3",
+      "name": "NUTRI CHOICE BKS CASE",
+      "price": 17500.00,
+      "confidence": 0.9
+    },
+    {
+      "id": "4",
+      "name": "MILK BIKIS CLASSIC CASE 120PK",
+      "price": 17000.00,
+      "confidence": 0.9
+    }
+  ],
+  "customers": [
+    {
+      "id": "ABCDE1234567890",
+      "name": "Shounak NextSpeed Technologies Pvt Ltd",
+      "confidence": 0.95
+    }
+  ]
+}
+

@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Base */
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  background: #EDD575;
+  color: #2f351e;
+}
+
+/* Layout */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 220px;
+  background: #454F2A;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar h1 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.sidebar button.active {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Main */
+
+.main {
+  flex: 1;
+  padding: 28px;
+  background: #EDD575;
+}
+
+/* Cards */
+
+.card {
+  background: rgba(255,255,255,0.75);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* Tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table {
+  margin-top: 12px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px 16px;
+}
+
+.data-table th {
+  text-align: left;
+  font-weight: 600;
+  color: #454F2A;
+  border-bottom: 2px solid #454F2A;
+}
+
+.data-table td {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+/* Upload */
+
+.upload {
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+
+.primary-btn {
+  background: #454F2A;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  opacity: .9;
+}
