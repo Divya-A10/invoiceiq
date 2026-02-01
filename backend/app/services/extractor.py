@@ -4,6 +4,11 @@ import time
 from typing import List
 from io import BytesIO
 
+import pandas as pd
+from PIL import Image
+import pytesseract
+
+
 import google.generativeai as genai
 from PyPDF2 import PdfReader
 from fastapi import UploadFile
@@ -46,19 +51,30 @@ async def extract_data(files: List[UploadFile]):
         content = await f.read()
         ct = f.content_type or ""
 
-        if "pdf" in ct:
-            types.add("PDF")
-            reader = PdfReader(BytesIO(content))
-            for page in reader.pages:
-                full_text += (page.extract_text() or "") + "\n"
+    # ---------- PDF ----------
+    if "pdf" in ct:
+        types.add("PDF")
+        reader = PdfReader(BytesIO(content))
+        for page in reader.pages:
+            full_text += (page.extract_text() or "") + "\n"
 
-        elif "image" in ct:
-            types.add("IMAGE")
-            # (future: Gemini Vision)
+    # ---------- IMAGE ----------
+    elif "image" in ct:
+        types.add("IMAGE")
+        image = Image.open(BytesIO(content))
+        text = pytesseract.image_to_string(image)
+        full_text += text + "\n"
 
-        elif "excel" in ct or "spreadsheet" in ct:
-            types.add("EXCEL")
-            # (future: pandas/openpyxl)
+    # ---------- EXCEL ----------
+    elif (
+        "excel" in ct
+        or "spreadsheet" in ct
+        or f.filename.endswith(".xlsx")
+    ):
+        types.add("EXCEL")
+        df = pd.read_excel(BytesIO(content))
+        full_text += df.to_string(index=False) + "\n"
+
 
     print("TEXT PREVIEW:\n", full_text[:1500])
 
