@@ -17,8 +17,6 @@ State management is handled using Redux to ensure real-time updates across all t
 
 ---
 
-##  Code Quality and Documentation
-
 The application follows a modular architecture with clear separation of concerns between frontend and backend.
 
 ### Frontend Structure
@@ -87,7 +85,7 @@ Manual functional testing was performed to validate application behavior across 
 
 Each test case was verified visually and functionally.
 
-Screenshots and demo recordings are included in the `screenshots/` directory to demonstrate:
+Screenshots and demo recordings are included in the `solution/` directory to demonstrate:
 
 - Successful uploads
 - Extracted invoice data
@@ -116,62 +114,120 @@ These artifacts serve as validation of correct system behavior.
 - PDFPlumber / PyPDF
 - Tesseract OCR
 
-## ⚙️ Setup Instructions
+## # InvoiceIQ – Local Setup Guide
 
-### Backend
+This project consists of:
+
+- **Backend**: FastAPI (Python)
+- **Frontend**: React (Vite)
+- **AI Extraction**: Google Gemini
+- **File Support**: PDF, XLSX (Excel), Images (OCR via Tesseract)
+
+---
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- Python 3.11+
+- Node.js 18+
+- npm
+- Git
+
+### macOS (additional requirement for OCR)
+
+Install Tesseract:
 
 ```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r app/requirements.txt
-uvicorn app.main:app --reload
+brew install tesseract
 ```
-Backend runs on:
+Verify:
+```bash
+tesseract --version
+```
+1. Clone the Repository
+```bash
+git clone https://github.com/Divya-A10/invoiceiq.git
+cd invoiceiq
+```
+3. Backend Setup (FastAPI)
+Navigate to backend:
+```bash
+cd backend
+Create virtual environment:
+python3 -m venv venv
+source venv/bin/activate
+```
+Upgrade pip:
+```bash
+python -m pip install --upgrade pip
+```
+Install backend dependencies:
+```bash
+python -m pip install fastapi uvicorn python-multipart google-generativeai PyPDF2 pandas openpyxl pillow pytesseract pdfplumber
+```
+Note: OpenTelemetry / google-adk are NOT required for this project.
+Environment Variables
+Create a .env file inside backend/:
+```bash
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
+Start Backend
+From backend/:
+```bash
+python -m uvicorn app.main:app --reload
+```
+Backend will run at:
 http://127.0.0.1:8000
 
-### Frontend
-
+5. Frontend Setup (React)
+Open a new terminal, then:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-Frontend runs on:
+Frontend will run at:
 http://localhost:5173
 
-📁 Project Structure
+7. Using the Application
+
+1.Open the frontend URL in your browser.
+2.Upload files (PDF / XLSX / Images).
+3.Extracted data appears across:
+* Invoices
+* Products
+* Customers
+4.State is synchronized across tabs using Redux.
+  
+# Supported File Types
+- PDF (text extraction)
+- XLSX (parsed via pandas/openpyxl)
+- JPG / PNG (OCR via Tesseract)
+All file content is converted to text and passed to Gemini for structured extraction.
+# AI Fallback
+If Gemini API quota is exceeded, the backend safely falls back to mock/sample data so the frontend continues to function.
+# Demo
+A full demo walkthrough is available:
+solutions/demo.mp4
+# Notes for Evaluators
+* Please ensure Tesseract is installed (required for image OCR).
+* Backend must be started before frontend.
+* If ports are busy, adjust Vite or Uvicorn ports accordingly.
+* Virtual environment (venv) and node_modules are excluded via .gitignore.
+  
+# 📁 Project Structure
 
 invoiceiq/
 ├── backend/
-│   └── app/
-│       ├── core/
-│       │   └── config.py              # Application configuration
-│       ├── db/
-│       │   └── database.py            # Database connection setup
-│       ├── models/
-│       │   ├── customer.py            # Customer data model
-│       │   ├── invoice.py             # Invoice data model
-│       │   └── product.py             # Product data model
-│       ├── routes/
-│       │   └── upload.py              # File upload & extraction endpoints
-│       ├── services/                  # AI + extraction services
-│       ├── schemas.py                 # Pydantic schemas
-│       ├── routes.py                  # API router registration
-│       ├── main.py                    # FastAPI application entry point
-│       ├── list_models.py             # Utility for inspecting AI models
-│       └── requirements.txt           # Backend dependencies
-│
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── routes/
+│   │   └── services/
+│   └── venv/
 ├── frontend/
-│   ├── public/
 │   └── src/
-│       ├── app/                       # Redux store configuration
-│       ├── assets/                    # Static assets
-│       ├── features/                 # Redux slices (invoices, products, customers)
-│       ├── pages/                    # Invoices, Products, Customers pages
-│       ├── App.tsx                   # Main React component
-│       ├── main.tsx                  # React entry point
-│       └── index.css                 # Global styles
-│
+└── README.md│
 ├── solutions/                        # UI screenshots for documentation
 ├── demo.mp4                          # Demo recordings
 └──dashboard.png
