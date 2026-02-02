@@ -25,10 +25,11 @@ export default function App() {
     Array.from(e.target.files).forEach(f => formData.append("files", f));
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch("https://invoiceiq-88be.onrender.com/upload", {
+  method: "POST",
+  body: formData,
+});
+
 
       const data = await res.json();
 
