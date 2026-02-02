@@ -1,0 +1,251 @@
+{
+  "invoices": [
+    {
+      "id": "INV-TEST-456",
+      "customer": "Sandeep Ranga",
+      "total": 153600.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-TEST-963",
+      "customer": "Vardharajulu",
+      "total": 106400.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-148CZS",
+      "customer": "Shounak",
+      "total": 205481.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-147CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1561.75,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-146CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 2345600.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-145CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 234500.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-144CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-143CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 118.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-142CZS",
+      "customer": "Test Assam",
+      "total": 71.82,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-141CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 16.67,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-140CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 100000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-139CZS",
+      "customer": "einvoice testing",
+      "total": 2865.6,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-138CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1050.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-137CZS",
+      "customer": "KL: 06: 98989",
+      "total": 168.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-136CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-135CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 17700.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-134CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 138031.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-133CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 3000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-132CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 136606.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-131CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1050.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-130CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1575.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-129CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 137506.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-128CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1050.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-127CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 4000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-126CZS",
+      "customer": "SRUSTI",
+      "total": 1000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-125CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 4000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-124CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1575.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-123CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1575.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-122CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 525.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-121CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 2000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-120CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-119CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 3000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-118CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 2000.0,
+      "confidence": 0.9
+    },
+    {
+      "id": "INV-117CZS",
+      "customer": "Kumar Red Red Reddi",
+      "total": 1000.0,
+      "confidence": 0.9
+    }
+  ],
+  "products": [],
+  "customers": [
+    {
+      "id": "Sandeep Ranga",
+      "name": "Sandeep Ranga",
+      "confidence": 0.95
+    },
+    {
+      "id": "Vardharajulu",
+      "name": "Vardharajulu",
+      "confidence": 0.95
+    },
+    {
+      "id": "Shounak",
+      "name": "Shounak",
+      "confidence": 0.95
+    },
+    {
+      "id": "Kumar Red Red Reddi",
+      "name": "Kumar Red Red Reddi",
+      "confidence": 0.95
+    },
+    {
+      "id": "Test Assam",
+      "name": "Test Assam",
+      "confidence": 0.95
+    },
+    {
+      "id": "einvoice testing",
+      "name": "einvoice testing",
+      "confidence": 0.95
+    },
+    {
+      "id": "KL: 06: 98989",
+      "name": "KL: 06: 98989",
+      "confidence": 0.95
+    },
+    {
+      "id": "SRUSTI",
+      "name": "SRUSTI",
+      "confidence": 0.95
+    }
+  ]
+}
