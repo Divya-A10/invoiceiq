@@ -6,7 +6,7 @@ from io import BytesIO
 
 import pandas as pd
 from PIL import Image
-import pytesseract
+
 
 
 import google.generativeai as genai
@@ -61,7 +61,7 @@ async def extract_data(files: List[UploadFile]):
         elif "image" in ct:
             types.add("IMAGE")
             image = Image.open(BytesIO(content))
-            text = pytesseract.image_to_string(image)
+           ## text = pytesseract.image_to_string(image)
             full_text += text + "\n"
 
         # ---------- EXCEL ----------
