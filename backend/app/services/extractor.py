@@ -46,35 +46,35 @@ async def extract_data(files: List[UploadFile]):
     full_text = ""
     types = set()
 
-    # ---- read each uploaded file ----
     for f in files:
         content = await f.read()
         ct = f.content_type or ""
 
-    # ---------- PDF ----------
-    if "pdf" in ct:
-        types.add("PDF")
-        reader = PdfReader(BytesIO(content))
-        for page in reader.pages:
-            full_text += (page.extract_text() or "") + "\n"
+        # ---------- PDF ----------
+        if "pdf" in ct:
+            types.add("PDF")
+            reader = PdfReader(BytesIO(content))
+            for page in reader.pages:
+                full_text += (page.extract_text() or "") + "\n"
 
-    # ---------- IMAGE ----------
-    elif "image" in ct:
-        types.add("IMAGE")
-        image = Image.open(BytesIO(content))
-        text = pytesseract.image_to_string(image)
-        full_text += text + "\n"
+        # ---------- IMAGE ----------
+        elif "image" in ct:
+            types.add("IMAGE")
+            image = Image.open(BytesIO(content))
+            text = pytesseract.image_to_string(image)
+            full_text += text + "\n"
 
-    # ---------- EXCEL ----------
-    elif (
-        "excel" in ct
-        or "spreadsheet" in ct
-        or f.filename.endswith(".xlsx")
-    ):
-        types.add("EXCEL")
-        df = pd.read_excel(BytesIO(content))
-        full_text += df.to_string(index=False) + "\n"
+        # ---------- EXCEL ----------
+        elif (
+            "excel" in ct
+            or "spreadsheet" in ct
+            or f.filename.endswith(".xlsx")
+        ):
+            types.add("EXCEL")
+            df = pd.read_excel(BytesIO(content))
 
+            # ✅ IMPORTANT CHANGE: use to_csv (no truncation)
+            full_text += df.to_csv(index=False) + "\n"
 
     print("TEXT PREVIEW:\n", full_text[:1500])
 
@@ -111,8 +111,31 @@ async def extract_data(files: List[UploadFile]):
 
     print("PARSED:", parsed)
 
-    # attach fileTypes for frontend badges
-    return {
-        **parsed,
-        "fileTypes": list(types),
+    # -------- Normalize invoice customers --------
+    for inv in parsed.get("invoices", []):
+       if not inv.get("customer"):
+          inv["customer"] = "Unknown Customer"
+
+# ----------------- SAFETY: derive customers if missing -----------------
+
+    customers_map = {}
+
+    for inv in parsed.get("invoices", []):
+        name = inv.get("customer") or "Unknown Customer"
+
+        customers_map[name] = {
+            "id": name.lower().replace(" ", "_"),
+            "name": name,
+            "confidence": inv.get("confidence", 0.8),
     }
+
+    parsed["customers"] = list(customers_map.values())
+
+    return {
+            **parsed,
+            "fileTypes": list(types),
+        }
+
+
+
+
